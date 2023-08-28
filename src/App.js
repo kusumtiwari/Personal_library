@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header.js';
+import Bookbox from './Bookbox.js';
+import {useState} from 'react'
 
 function App() {
+
+  const [showBox, setshowBox] = useState(false);
+  
+  const displaybox= () => setshowBox(true);
+
+  const removebox = () => setshowBox(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Header displayBox = {displaybox}/>
+     <div className='body-part'></div>
+      {showBox && <Bookbox removeBox = {removebox}/>}
     </div>
   );
 }
