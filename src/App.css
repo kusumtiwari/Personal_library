@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 .app{
   min-height: 100vh;
@@ -23,6 +24,17 @@
   font-size: clamp(1.1rem, 2.4vw, 2rem);
   padding: 0.5em 0;
 }
+
+.box2{
+  height: 35vh;
+  width: 30vw;
+  background-color: lightpink;
+  border: 2px solid black;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+ grid-gap: 20px; 
+}
+
 .box{
   height: 45vh;
   width: 30vw;
@@ -49,5 +61,16 @@ input{
 }
 .body-part{
   min-height: 80vh;
-  background-color: orange;;
+  background-color: orange;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px; 
+  padding: 1em;
 }
+.opacity{
+  /* background-color: grey; */
+  opacity: 0.2;
+}
+/* li{
+  margin: 1em;
+} */

@@ -1,9 +1,10 @@
-export default function Postboxdiv(){
-  console.log('hi');
+export default function Postboxdiv({postbox}){
+    
     return(
-        <div>
-        <h2>hello</h2>
-        </div>
-        
+        <ul className="box2">
+            {postbox.map((item,index) => (
+              <li key={index}>{item}</li>
+            ))}
+        </ul>
     )
-}
+} 

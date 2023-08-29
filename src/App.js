@@ -2,27 +2,40 @@ import './App.css';
 import Header from './Header.js';
 import Bookbox from './Bookbox.js';
 import Postboxdiv from './Postboxdiv.js';
-import {useState} from 'react'
+import {useState,useRef} from 'react'
 
 function App() {
-
+  const header = useRef(null);
+  const bodyPart = useRef(null);
   const[postbox, setpostbox] = useState([]);
 
   const [showBox, setshowBox] = useState(false);
   
-  const displaybox= () => setshowBox(true);
-
-  const removebox = () => setshowBox(false);
+  const displaybox = () => {
+    setshowBox(true);
+    bodyPart.current.classList.add('opacity');
+    header.current.classList.add('opacity');
+  };  
+  const removebox = () => {
+    setshowBox(false);
+    bodyPart.current.classList.remove('opacity');
+    header.current.classList.remove('opacity');
+  };
 
   const divbox = (arr) => {
-    setpostbox(arr);
+    let value = [...postbox, arr];
+    console.log(value);
+    setpostbox([...postbox, arr]);
   }
   return (
     <div className="App">
-     <Header displayBox = {displaybox}/>
-     <div className='body-part'>
-     {postbox.length > 0 && <Postboxdiv />}
-     </div>
+      <div className='header' ref={header}>
+     <Header displayBox = {displaybox}/></div>
+     <div className='body-part' ref={bodyPart}>
+        {postbox.map((item, index) => (
+          <Postboxdiv key={index} postbox={item} />
+        ))}
+      </div>
       {showBox && <Bookbox functions = {{removebox, divbox}}/>}
     </div>
   ); 
