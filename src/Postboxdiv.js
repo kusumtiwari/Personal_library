@@ -1,10 +1,17 @@
+import {useState} from 'react';
 export default function Postboxdiv({postbox}){
-    
-    return(
+    const [erase,seterase] = useState(false);
+    function del(){
+        seterase(true);
+    }
+     return ( 
+        (erase === false) ?(
         <ul className="box2">
             {postbox.map((item,index) => (
               <li key={index}>{item}</li>
             ))}
-        </ul>
-    )
+            <button className="deletePost" onClick={del}>Delete</button>
+        </ul>) : null 
+     )
+     
 } 

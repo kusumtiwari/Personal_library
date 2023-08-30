@@ -27,12 +27,16 @@
 
 .box2{
   height: 35vh;
-  width: 30vw;
+  width: 230px;
   background-color: lightpink;
   border: 2px solid black;
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
- grid-gap: 20px; 
+  padding: 10px; 
+  overflow: auto;
+}
+
+.app{
+  width: 100vw;
+  /* min-height: 100vh; */
 }
 
 .box{
@@ -47,30 +51,56 @@
   position: fixed;
   left: 35%;
   top: 30%;
+  overflow: hidden;
 }
 input{
   width: 90%;
   height: 7vh;
   border: 1px solid black;
+  text-align: center;
 }
-.cancelBtn, .postBtn{
+.cancelBtn, .postBtn {
   padding: 0.8em;
   border: 1px solid black;
   margin-right: 0.5em;
   cursor: pointer;
 }
+.deletePost{
+  padding: 0.8em;
+  border: 1px solid black;
+  margin-left: 5em;
+  cursor: pointer;
+}
 .body-part{
-  min-height: 80vh;
+  /* min-height: 80vh; */
   background-color: orange;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px; 
+  width: 100%;
+  min-height: 80vh;
   padding: 1em;
 }
 .opacity{
-  /* background-color: grey; */
   opacity: 0.2;
 }
-/* li{
-  margin: 1em;
-} */
+li{
+  height: 7vh;
+  text-align: center;
+}
+@media (max-width: 730px){
+  .box{
+    width: 45vw;
+  }
+}
+@media (max-width: 500px){
+  .box{
+    width: 70vw;
+    left: 15%;
+  }
+}
+@media (max-width: 250px){
+  .box2{
+    width: 160px;
+  }
+}

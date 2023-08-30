@@ -22,6 +22,10 @@ function App() {
     header.current.classList.remove('opacity');
   };
 
+  // const delete = () => {
+
+  // }
+
   const divbox = (arr) => {
     let value = [...postbox, arr];
     console.log(value);
